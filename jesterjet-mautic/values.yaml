@@ -1,0 +1,48 @@
+mariadb:
+  password: UT4tUnY$18AdjrUE
+  storage:
+    class: do-block-storage
+    size: 8Gi
+  image:
+    name: mariadb
+    tag: "10.6"
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+mautic:
+  storage:
+    class: do-block-storage
+    size: 8Gi
+  image:
+    name: mautic/mautic
+    tag: v4-apache
+  resources:
+    limits:
+      cpu: 400m
+      memory: 1Gi
+    requests:
+      cpu: 200m
+      memory: 500Mi
+  admin:
+    email: admin@jesterjet.com
+    username: admin
+    firstname: Mautic
+    lastname: Admin
+    password: admin123
+
+postfix:
+  image:
+    name: mwader/postfix-relay
+    tag: "1.1"
+  resources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 100m
+      memory: 200Mi

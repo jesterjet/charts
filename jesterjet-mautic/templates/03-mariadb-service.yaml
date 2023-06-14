@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-mariadb
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: {{ .Release.Name }}-mariadb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-mariadb
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-mariadb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-mariadb
+    spec:
+      containers:
+      - image: "{{ .Values.mariadb.image.name }}:{{ .Values.mariadb.image.tag }}"
+        name: {{ .Release.Name }}-mariadb
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-mariadb-secret
+              key: password
+        ports:
+        - containerPort: 3306
+          name: {{ .Release.Name }}-mariadb
+        volumeMounts:
+        - name: {{ .Release.Name }}-mariadb-persistent-storage
+          mountPath: "/var/lib/mysql"
+        resources:
+          limits:
+            cpu: {{ .Values.mariadb.resources.limits.cpu }}
+            memory: {{ .Values.mariadb.resources.limits.memory }}
+          requests:
+            cpu: {{ .Values.mariadb.resources.requests.cpu }}
+            memory: {{ .Values.mariadb.resources.requests.memory }}
+      volumes:
+      - name: {{ .Release.Name }}-mariadb-persistent-storage
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-mariadb-pvc

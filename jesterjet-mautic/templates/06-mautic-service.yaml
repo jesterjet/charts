@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Release.Name }}-mautic
+  name: {{ .Release.Name }}-mautic
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: {{ .Release.Name }}-mautic
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-mautic
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-mautic
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-mautic
+    spec:
+      containers:
+      - image: "{{ .Values.mautic.image.name }}:{{ .Values.mautic.image.tag }}"
+        name: {{ .Release.Name }}-mautic
+        env:
+        - name: MAUTIC_INSTALL_FORCE
+          value: "true"
+        - name: MAUTIC_RUN_CRON_JOBS
+          value: "true"
+        - name: MAUTIC_URL
+          value: http://{{ .Release.Name }}.jesterjet.com
+        - name: MAUTIC_ADMIN_EMAIL
+          value: {{ .Values.mautic.admin.email }}
+        - name: MAUTIC_ADMIN_USERNAME
+          value: {{ .Values.mautic.admin.username }}
+        - name: MAUTIC_ADMIN_FIRSTNAME
+          value: {{ .Values.mautic.admin.firstname }}
+        - name: MAUTIC_ADMIN_LASTNAME
+          value: {{ .Values.mautic.admin.lastname }}
+        - name: MAUTIC_ADMIN_PASSWORD
+          value: {{ .Values.mautic.admin.password }}
+        - name: MAUTIC_DB_HOST
+          value: {{ .Release.Name }}-mariadb:3306
+        - name: MAUTIC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-mariadb-secret
+              key: password
+        - name: MAUTIC_CONFIG_MAILER_TRANSPORT
+          value: smtp
+        - name: MAUTIC_CONFIG_MAILER_HOST
+          value: {{ .Release.Name }}-mailer
+        - name: MAUTIC_CONFIG_MAILER_PORT
+          value: "25"
+        ports:
+        - containerPort: 80
+          name: {{ .Release.Name }}-mautic
+        volumeMounts:
+        - name: {{ .Release.Name }}-mautic-persistent-storage
+          mountPath: "/var/www/html"
+        resources:
+          limits:
+            cpu: {{ .Values.mautic.resources.limits.cpu }}
+            memory: {{ .Values.mautic.resources.limits.memory }}
+          requests:
+            cpu: {{ .Values.mautic.resources.requests.cpu }}
+            memory: {{ .Values.mautic.resources.requests.memory }}
+        readinessProbe:
+          httpGet:
+            path: /s/login
+            port: 80
+          initialDelaySeconds: 20
+          periodSeconds: 10
+
+      volumes:
+      - name: {{ .Release.Name }}-mautic-persistent-storage
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-mautic-pvc
