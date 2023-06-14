@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2023-06-13T23:42:57.152641-03:00"
+entries:
+  jesterjet-mautic:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-14T00:05:50.673516-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 6a10a7fd59665fb82064697e947a1ec2317c5e448a25ad800a7f60464120cf39
+    name: jesterjet-mautic
+    type: application
+    urls:
+    - https://www.schwindt.org/charts/jesterjet-mautic-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-14T00:05:50.673109-03:00"
