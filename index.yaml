@@ -4,7 +4,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-06-14T00:05:50.673516-03:00"
-    description: A Helm chart for Kubernetes
+    description: A Helm chart installing jesterjet-mautic instance
     digest: 6a10a7fd59665fb82064697e947a1ec2317c5e448a25ad800a7f60464120cf39
     name: jesterjet-mautic
     type: application
