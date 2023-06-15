@@ -9,6 +9,6 @@ entries:
     name: jesterjet-mautic
     type: application
     urls:
-    - https://www.schwindt.org/charts/jesterjet-mautic-0.1.0.tgz
+    - https://charts.jesterjet.com/jesterjet-mautic-0.1.0.tgz
     version: 0.1.0
 generated: "2023-06-14T00:05:50.673109-03:00"
