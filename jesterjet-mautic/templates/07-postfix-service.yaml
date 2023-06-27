@@ -69,9 +69,6 @@ spec:
           value: hash:/etc/postfix/transport_maps
         - name: POSTMAP_transport_maps
           value: "* relay:[$(SMTP_HOST)]:$(SMTP_PORT)"
-        ports:
-        - containerPort: 25
-          name: {{ .Release.Name }}-mailer
         resources:
           limits:
             cpu: {{ .Values.postfix.resources.limits.cpu }}

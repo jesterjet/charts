@@ -3,12 +3,22 @@ entries:
   jesterjet-mautic:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-14T00:05:50.673516-03:00"
-    description: A Helm chart installing jesterjet-mautic instance
+    created: "2023-06-27T13:09:19.668222-03:00"
+    description: A Helm chart for Kubernetes
+    digest: d23a7d3ca2c16227de123716849e4adffb3dd9925817418014fc95b7e306845c
+    name: jesterjet-mautic
+    type: application
+    urls:
+    - https://charts.jesterjet.com/jesterjet-mautic-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-27T13:09:19.667785-03:00"
+    description: A Helm chart for Kubernetes
     digest: 6a10a7fd59665fb82064697e947a1ec2317c5e448a25ad800a7f60464120cf39
     name: jesterjet-mautic
     type: application
     urls:
     - https://charts.jesterjet.com/jesterjet-mautic-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-14T00:05:50.673109-03:00"
+generated: "2023-06-27T13:09:19.666818-03:00"

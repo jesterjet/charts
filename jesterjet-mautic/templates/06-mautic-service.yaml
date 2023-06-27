@@ -60,9 +60,6 @@ spec:
           value: {{ .Release.Name }}-mailer
         - name: MAUTIC_CONFIG_MAILER_PORT
           value: "25"
-        ports:
-        - containerPort: 80
-          name: {{ .Release.Name }}-mautic
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
           mountPath: "/var/www/html"

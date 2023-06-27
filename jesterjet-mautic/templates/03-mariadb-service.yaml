@@ -32,9 +32,6 @@ spec:
             secretKeyRef:
               name: {{ .Release.Name }}-mariadb-secret
               key: password
-        ports:
-        - containerPort: 3306
-          name: {{ .Release.Name }}-mariadb
         volumeMounts:
         - name: {{ .Release.Name }}-mariadb-persistent-storage
           mountPath: "/var/lib/mysql"
