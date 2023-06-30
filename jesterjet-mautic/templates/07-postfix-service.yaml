@@ -24,8 +24,9 @@ spec:
         app: {{ .Release.Name }}-mailer
     spec:
       containers:
-      - image: "{{ .Values.postfix.image.name }}:{{ .Values.postfix.image.tag }}"
-        name: {{ .Release.Name }}-mailer
+      - name: {{ .Release.Name }}-mailer
+        image: "{{ .Values.postfix.image.name }}:{{ .Values.postfix.image.tag }}"
+        imagePullPolicy: Always
         env:
         - name: SMTP_HOST
           valueFrom:

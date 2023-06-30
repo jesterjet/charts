@@ -28,8 +28,9 @@ spec:
         app: {{ .Release.Name }}-mautic
     spec:
       containers:
-      - image: "{{ .Values.mautic.image.name }}:{{ .Values.mautic.image.tag }}"
-        name: {{ .Release.Name }}-mautic
+      - name: {{ .Release.Name }}-mautic
+        image: "{{ .Values.mautic.image.name }}:{{ .Values.mautic.image.tag }}"
+        imagePullPolicy: Always
         env:
         - name: MAUTIC_INSTALL_FORCE
           value: "true"
