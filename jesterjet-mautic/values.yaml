@@ -29,7 +29,7 @@ mautic:
       cpu: 200m
       memory: 500Mi
   admin:
-    email: admin@jesterjet.com
+    email: admin@stimch.com
     username: admin
     firstname: Mautic
     lastname: Admin

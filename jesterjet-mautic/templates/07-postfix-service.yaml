@@ -49,7 +49,7 @@ spec:
               name: jj-app-config
               key: SMTP_PASS
         - name: POSTFIX_myhostname
-          value: jesterjet.com
+          value: stimch.com
         - name: POSTFIX_smtp_sasl_auth_enable
           value: "yes"
         - name: POSTFIX_smtp_sasl_security_options

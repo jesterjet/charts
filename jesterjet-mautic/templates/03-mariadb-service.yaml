@@ -26,6 +26,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-mariadb
         image: "{{ .Values.mariadb.image.name }}:{{ .Values.mariadb.image.tag }}"
+        imagePullPolicy: Always
         env:
         - name: MARIADB_ROOT_PASSWORD
           valueFrom:

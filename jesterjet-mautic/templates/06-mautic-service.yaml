@@ -37,7 +37,7 @@ spec:
         - name: MAUTIC_RUN_CRON_JOBS
           value: "true"
         - name: MAUTIC_URL
-          value: http://{{ .Release.Name }}.jesterjet.com
+          value: http://{{ .Release.Name }}.stimch.com
         - name: MAUTIC_ADMIN_EMAIL
           value: {{ .Values.mautic.admin.email }}
         - name: MAUTIC_ADMIN_USERNAME

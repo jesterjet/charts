@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - '*.jesterjet.com'
+    - '*.stimch.com'
     secretName: jesterjet-tls-certificate
   rules:
-  - host: {{ .Release.Name }}.jesterjet.com
+  - host: {{ .Release.Name }}.stimch.com
     http:
       paths:
       - path: /
