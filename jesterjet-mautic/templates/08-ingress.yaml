@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - '*.stimch.com'
-    secretName: jesterjet-tls-certificate
+    secretName: stimch-tls-certificate
   rules:
   - host: {{ .Release.Name }}.stimch.com
     http:
