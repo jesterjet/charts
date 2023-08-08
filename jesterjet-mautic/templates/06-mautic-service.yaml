@@ -39,17 +39,17 @@ spec:
         - name: MAUTIC_URL
           value: http://{{ .Release.Name }}.stimch.com
         - name: MAUTIC_ADMIN_EMAIL
-          value: {{ .Values.mautic.admin.email }}
+          value: "{{ .Values.mautic.admin.email }}"
         - name: MAUTIC_ADMIN_USERNAME
-          value: {{ .Values.mautic.admin.username }}
+          value: "{{ .Values.mautic.admin.username }}"
         - name: MAUTIC_ADMIN_FIRSTNAME
-          value: {{ .Values.mautic.admin.firstname }}
+          value: "{{ .Values.mautic.admin.firstname }}"
         - name: MAUTIC_ADMIN_LASTNAME
-          value: {{ .Values.mautic.admin.lastname }}
+          value: "{{ .Values.mautic.admin.lastname }}"
         - name: MAUTIC_ADMIN_PASSWORD
-          value: {{ .Values.mautic.admin.password }}
+          value: "{{ .Values.mautic.admin.password }}"
         - name: MAUTIC_DB_HOST
-          value: {{ .Release.Name }}-mariadb:3306
+          value: "{{ .Release.Name }}-mariadb:3306"
         - name: MAUTIC_DB_PASSWORD
           valueFrom:
             secretKeyRef:
