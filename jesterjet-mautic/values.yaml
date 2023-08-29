@@ -34,6 +34,10 @@ mautic:
     firstname: Mautic
     lastname: Admin
     password: admin123
+  mailer:
+    transport: smtp
+    host: stimch-mailer
+    port: 587
 
 postfix:
   image:

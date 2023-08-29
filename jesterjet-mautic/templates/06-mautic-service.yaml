@@ -41,15 +41,15 @@ spec:
         - name: MAUTIC_URL
           value: http://{{ .Release.Name }}.stimch.com
         - name: MAUTIC_ADMIN_EMAIL
-          value: "{{ .Values.mautic.admin.email }}"
+          value: {{ .Values.mautic.admin.email | quote }}
         - name: MAUTIC_ADMIN_USERNAME
-          value: "{{ .Values.mautic.admin.username }}"
+          value: {{ .Values.mautic.admin.username | quote }}
         - name: MAUTIC_ADMIN_FIRSTNAME
-          value: "{{ .Values.mautic.admin.firstname }}"
+          value: {{ .Values.mautic.admin.firstname | quote }}
         - name: MAUTIC_ADMIN_LASTNAME
-          value: "{{ .Values.mautic.admin.lastname }}"
+          value: {{ .Values.mautic.admin.lastname | quote }}
         - name: MAUTIC_ADMIN_PASSWORD
-          value: "{{ .Values.mautic.admin.password }}"
+          value: {{ .Values.mautic.admin.password | quote }}
         - name: MAUTIC_DB_HOST
           value: "{{ .Release.Name }}-mariadb:3306"
         - name: MAUTIC_DB_PASSWORD
@@ -58,11 +58,11 @@ spec:
               name: {{ .Release.Name }}-mariadb-secret
               key: password
         - name: MAUTIC_CONFIG_MAILER_TRANSPORT
-          value: smtp
+          value: {{ .Values.mautic.mailer.transport }}
         - name: MAUTIC_CONFIG_MAILER_HOST
-          value: {{ .Release.Name }}-mailer
+          value: {{ .Values.mautic.mailer.host }}
         - name: MAUTIC_CONFIG_MAILER_PORT
-          value: "25"
+          value: {{ .Values.mautic.mailer.port | quote }}
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
           mountPath: "/var/www/html"
