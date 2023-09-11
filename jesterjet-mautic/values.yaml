@@ -38,6 +38,7 @@ mautic:
     transport: smtp
     host: stimch-mailer
     port: 587
+    from_email: info@stimch.com
 
 postfix:
   image:

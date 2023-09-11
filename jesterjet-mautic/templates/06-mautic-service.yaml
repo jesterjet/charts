@@ -63,6 +63,8 @@ spec:
           value: {{ .Values.mautic.mailer.host }}
         - name: MAUTIC_CONFIG_MAILER_PORT
           value: {{ .Values.mautic.mailer.port | quote }}
+        - name: MAUTIC_CONFIG_MAILER_FROM_EMAIL
+          value: {{ .Values.mautic.mailer.from_email }}
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
           mountPath: "/var/www/html"
