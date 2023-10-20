@@ -65,6 +65,21 @@ spec:
           value: {{ .Values.mautic.mailer.port | quote }}
         - name: MAUTIC_CONFIG_MAILER_FROM_EMAIL
           value: {{ .Values.mautic.mailer.from_email }}
+        - name: MAUTIC_CONFIG_SAML_IDP_ENTITY_ID
+          value: http://{{ .Release.Name }}.stimch.com
+        - name: MAUTIC_CONFIG_SAML_IDP_EMAIL_ATTRIBUTE
+          value: EmailAddress
+        - name: MAUTIC_CONFIG_SAML_IDP_FIRSTNAME_ATTRIBUTE
+          value: FirstName
+        - name: MAUTIC_CONFIG_SAML_IDP_LASTNAME_ATTRIBUTE
+          value: LastName
+        - name: MAUTIC_CONFIG_SAML_IDP_METADATA
+          value: {{ .Values.mautic.saml.metadata }}
+        - name: MAUTIC_CONFIG_SAML_IDP_OWN_CERTIFICATE
+          value: {{ .Values.mautic.saml.certificate }}
+        - name: MAUTIC_CONFIG_SAML_IDP_OWN_PRIVATE_KEY
+          value: {{ .Values.mautic.saml.private_key }}
+
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
           mountPath: "/var/www/html"
