@@ -73,6 +73,8 @@ spec:
           value: FirstName
         - name: MAUTIC_CONFIG_SAML_IDP_LASTNAME_ATTRIBUTE
           value: LastName
+        - name: MAUTIC_CONFIG_SAML_IDP_DEFAULT_ROLE
+          value: 1
         - name: MAUTIC_CONFIG_SAML_IDP_METADATA
           value: {{ .Values.mautic.saml.metadata }}
         - name: MAUTIC_CONFIG_SAML_IDP_OWN_CERTIFICATE
