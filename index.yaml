@@ -3,7 +3,17 @@ entries:
   jesterjet-mautic:
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2023-10-20T19:40:28.508134-03:00"
+    created: "2023-10-20T20:00:32.224569-03:00"
+    description: A Helm chart for Kubernetes
+    digest: fc52d1e9df0a754ade4ffe2e64f7de27a8f65d35f184f6b7a846ff38b3fb66b3
+    name: jesterjet-mautic
+    type: application
+    urls:
+    - https://charts.jesterjet.com/jesterjet-mautic-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 1.20.2
+    created: "2023-10-20T20:00:32.224099-03:00"
     description: A Helm chart for Kubernetes
     digest: edd8a69c4caf50c3d5b8aa3e7fcb6bdb5ab0eef6f75ee647e23ca2f26ec9cc6c
     name: jesterjet-mautic
@@ -13,7 +23,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2023-10-20T19:40:28.507705-03:00"
+    created: "2023-10-20T20:00:32.223401-03:00"
     description: A Helm chart for Kubernetes
     digest: 16b6532502e69c535e88dbd1b4f480d5b4b28aa5869fa308eee3a1ed2525fc5c
     name: jesterjet-mautic
@@ -23,7 +33,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 1.20.2
-    created: "2023-10-20T19:40:28.507072-03:00"
+    created: "2023-10-20T20:00:32.222595-03:00"
     description: A Helm chart for Kubernetes
     digest: 80a953ebcc7e35691700788b8184b356ff73192b565c2d30d2daf0b44f56e157
     name: jesterjet-mautic
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://charts.jesterjet.com/jesterjet-mautic-0.3.0.tgz
     version: 0.3.0
-generated: "2023-10-20T19:40:28.504257-03:00"
+generated: "2023-10-20T20:00:32.221644-03:00"
