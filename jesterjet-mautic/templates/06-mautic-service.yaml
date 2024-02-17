@@ -81,6 +81,10 @@ spec:
           value: {{ .Values.mautic.saml.certificate }}
         - name: MAUTIC_CONFIG_SAML_IDP_OWN_PRIVATE_KEY
           value: {{ .Values.mautic.saml.private_key }}
+        - name: MAUTIC_CONFIG_API_ENABLED
+          value: "1"
+        - name: MAUTIC_CONFIG_API_ENABLE_BASIC_AUTH
+          value: true
 
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
@@ -97,7 +101,9 @@ spec:
             path: /s/login
             port: 80
           initialDelaySeconds: 20
-          periodSeconds: 10
+          periodSeconds: 20
+          failureThreshold: 3
+          timeoutSeconds: 5
 
       volumes:
       - name: {{ .Release.Name }}-mautic-persistent-storage
