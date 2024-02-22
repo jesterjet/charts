@@ -84,7 +84,7 @@ spec:
         - name: MAUTIC_CONFIG_API_ENABLED
           value: "1"
         - name: MAUTIC_CONFIG_API_ENABLE_BASIC_AUTH
-          value: true
+          value: "true"
 
         volumeMounts:
         - name: {{ .Release.Name }}-mautic-persistent-storage
