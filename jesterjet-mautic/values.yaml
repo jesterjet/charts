@@ -19,7 +19,7 @@ mautic:
     class: do-block-storage
     size: 8Gi
   image:
-    name: mautic/mautic
+    name: registry.jps.ar:5000/mautic/mautic
     tag: v4-apache
   resources:
     limits:
