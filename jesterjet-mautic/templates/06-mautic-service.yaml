@@ -29,6 +29,8 @@ spec:
       labels:
         app: {{ .Release.Name }}-mautic
     spec:
+      imagePullSecrets:
+      - name: registry-credentials
       containers:
       - name: {{ .Release.Name }}-mautic
         image: "{{ .Values.mautic.image.name }}:{{ .Values.mautic.image.tag }}"
